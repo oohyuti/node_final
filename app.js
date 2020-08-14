@@ -1,32 +1,36 @@
 let express = require('express');
 let firebase = require('firebase')
 var firebaseConfig = {
-    apiKey: "AIzaSyDxCLJkEfGrDxup6-ROtrYbC_m7ocgqllE",
-    authDomain: "nodejs-class-practice.firebaseapp.com",
-    databaseURL: "https://nodejs-class-practice.firebaseio.com",
-    projectId: "nodejs-class-practice",
-    storageBucket: "nodejs-class-practice.appspot.com",
-    messagingSenderId: "1015240617673",
-    appId: "1:1015240617673:web:a1c2928cbe704d4baa2718",
-    measurementId: "G-KHL0Y789PP"
+    apiKey: "AIzaSyAT4-tadx6Y_QPwGWu6BqO9j7SWLFpMedg",
+    authDomain: "test-20ebc.firebaseapp.com",
+    databaseURL: "https://test-20ebc.firebaseio.com",
+    projectId: "test-20ebc",
+    storageBucket: "test-20ebc.appspot.com",
+    messagingSenderId: "1017975822779",
+    appId: "1:1017975822779:web:4e31a35d43a0dc1fbbcc9e",
+    measurementId: "G-TMZGW3Z18W"
 };
+
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 let db = firebase.firestore();
 let app = express();
+app.get('/oohyuti',(req,res)=>{
+    res.send("<h1>oohyuti");
+});
 app.use(express.static('./public'));
 app.set('view engine', 'ejs');  
 app.get('/', async (req, res) => {  
-    //let data = await db.collection('classA').get();
-    //let userArr = []
-    // data.forEach((doc) => {
-    //     console.log(doc.data().name)
-    //     userArr.push(doc.data().name);
-    // })
+    let data = await db.collection('classA').get();
+    let userArr = []
+    data.forEach((doc) => {
+        console.log(doc.data().name)
+        userArr.push(doc.data().name);
+    })
     res.render('default', {  
         title: '首頁',  
-        users: ['Fisheep', 'Fiona', 'Alice', 'Bob']
-        //users: userArr
+        //users: ['Fisheep', 'Fiona', 'Alice', 'Bob']
+        users: userArr
     });  
 });
 
