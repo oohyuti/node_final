@@ -57,7 +57,12 @@ app.get("/classA_frontend", (req, res) => {
 app.get("/API/deleteMember", (req, res) => {
   db.collection("classA").doc(req.query.id).delete();
   console.log(req.query.id);
-  res.send(`delete Member id = ${req.query.id}!`);
+  let options = {
+    root: __dirname + "/public",
+    dotfiles: "ignore",
+  };
+  console.log(__dirname + "/public");
+  res.sendFile("/classA.html", options);
 });
 
 app.get("/API/addMember", (req, res) => {
@@ -66,8 +71,12 @@ app.get("/API/addMember", (req, res) => {
     gender: req.query.age,
     age: req.query.gender,
   });
-  console.log("Add member !!");
-  res.send("Add member success!");
+  let options = {
+    root: __dirname + "/public",
+    dotfiles: "ignore",
+  };
+  console.log(__dirname + "/public");
+  res.sendFile("/classA.html", options);
 });
 
 let port = process.env.PORT || 3000;
