@@ -3,20 +3,40 @@
   <head>
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <h1>ClassA</h1>
+  <h1>oohyuti's final project</h1>
   <body>
     <div class="content">
-      <form id="add-students-form">
-        <input type="text" name="name" placeholder="輸入 Student's name" />
-        <input type="text" name="gender" placeholder="輸入 Student's gender" />
-        <input type="text" name="age" placeholder="輸入 Student's age" />
-        <button>Add a student</button>
-      </form>
       <table id="stu-table" cellpadding="10" border="1" width="100%">
         <tr>
-          <td>姓名</td>
-          <td>年齡</td>
-          <td>性別</td>
+          <td>
+            <a href="https://finalproject-ti.herokuapp.com/oohyuti">/oohyuti</a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <a href="https://finalproject-ti.herokuapp.com/classA_backend"
+              >/classA_backend</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <a href="https://finalproject-ti.herokuapp.com/classA_frontend"
+              >/classA_frontend</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td>/API/deleteMember?id=<font color="silver">studentID</font></td>
+        </tr>
+        <tr>
+          <td>
+            /API/addMember?name=<font color="silver">NAME</font> &gender=<font
+              color="silver"
+              >GENDER</font
+            >
+            &age=<font color="silver">AGE</font>
+          </td>
         </tr>
       </table>
     </div>
@@ -45,5 +65,5 @@
     firebase.analytics();
     const db = firebase.firestore();
   </script>
-  <script src="frontend_setEvent.js"></script>
+  <script src="app.js"></script>
 </html>
